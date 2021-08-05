@@ -12,6 +12,22 @@ npm run dev
 yarn dev
 ```
 
+### Snapshots of project 👇
+
+<img target="_blank" src="1.png">
+
+<img target="_blank" src="2.png">
+
+<img target="_blank" src="3.png">
+
+<img target="_blank" src="4.png">
+
+<img target="_blank" src="5.png">
+
+
+
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
