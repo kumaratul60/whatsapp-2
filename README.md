@@ -6,6 +6,8 @@ First, run the development server:
 
 ```bash
 npm run dev
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 # or
 yarn dev
 ```
