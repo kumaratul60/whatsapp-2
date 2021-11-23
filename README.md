@@ -1,9 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). 
 
 ## Getting Started
 
 First, run the development server:
-
+ 
 ```bash
 npm run dev
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
@@ -11,6 +11,22 @@ npm run dev
 # or
 yarn dev
 ```
+
+### Snapshots of project 👇
+
+<img target="_blank" src="1.png">
+
+<img target="_blank" src="2.png">
+
+<img target="_blank" src="3.png">
+
+<img target="_blank" src="4.png">
+
+<img target="_blank" src="5.png">
+
+
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
