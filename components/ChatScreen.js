@@ -8,6 +8,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useCollection } from "react-firebase-hooks/firestore";
 import Message from "./Message";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import InputEmoji from "react-input-emoji";
+
 import MicIcon from "@material-ui/icons/Mic";
 import { useState, useRef } from "react";
 import firebase from "firebase";
@@ -22,6 +24,7 @@ function ChatScreen({ chat, messages }) {
   const router = useRouter();
   const [input, setInput] = useState("");
   const endOfMessagesRef = useRef(null);
+
   const [messagesSnapshot] = useCollection(
     db
       .collection("chats")
@@ -67,25 +70,28 @@ function ChatScreen({ chat, messages }) {
   };
 
   const sendMessage = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     // set for unique value (means don't override), it has two arguments,
-
-    // this will uupdate the last seen...
-    db.collection("users").doc(user.uid).set(
-      {
-        lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
-    db.collection("chats").doc(router.query.id).collection("messages").add({
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      message: input,
-      user: user.email,
-      photoURL: user.photoURL,
-    });
-    setInput("");
-    scrollToBottom();
+    if (input) {
+      // this will uupdate the last seen...
+      db.collection("users").doc(user.uid).set(
+        {
+          lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
+        },
+        { merge: true }
+      );
+      db.collection("chats").doc(router.query.id).collection("messages").add({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        message: input,
+        user: user.email,
+        photoURL: user.photoURL,
+      });
+      setInput("");
+      scrollToBottom();
+    } else {
+      alert("please enter message");
+    }
   };
 
   const recipient = recipientSnapshot?.docs?.[0]?.data();
@@ -135,11 +141,28 @@ function ChatScreen({ chat, messages }) {
       </MessageContainer>
 
       <InputContainer>
-        <InsertEmoticonIcon />
-        <Input value={input} onChange={(e) => setInput(e.target.value)} />
+        {/* <InsertEmoticonIcon /> */}
+
+        {/* <Input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Type a message"
+        /> */}
+        <InputEmoji
+          value={input}
+          onChange={setInput}
+          cleanOnEnter
+          onEnter={sendMessage}
+          placeholder="Type a message"
+        />
         <button hidden disabled={!input} type="submit" onClick={sendMessage}>
-          Send Message
+          Send
         </button>
+
+        {/* <button hidden disabled={!input} type="submit" onClick={sendMessage}>
+          Send Message
+        </button> */}
+
         <MicIcon />
       </InputContainer>
     </Container>
@@ -190,7 +213,7 @@ const EndOfMessages = styled.div`
 const InputContainer = styled.form`
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 8px;
   background-color: white;
   position: sticky;
   z-index: 100;
@@ -201,7 +224,7 @@ const Input = styled.input`
   flex: 1;
   outline: 0;
   border: none;
-  border-radius: 10px;
+  border-radius: 25px;
   padding: 20px;
   background-color: whitesmoke;
   /* margin: top left bottom right */

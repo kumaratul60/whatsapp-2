@@ -8,8 +8,8 @@ import getRecipientEmail from "../../utils/getRecipientEmail";
 
 function Chat({ chat, messages }) {
   const [user] = useAuthState(auth);
-  console.log(chat);
-  console.log(messages);
+  // console.log(chat);
+  // console.log(messages);
   return (
     <Container>
       <Head>
@@ -18,6 +18,7 @@ function Chat({ chat, messages }) {
       <Sidebar />
       <ChatContainer>
         <ChatScreen chat={chat} messages={messages} />
+       
       </ChatContainer>
     </Container>
   );

@@ -81,7 +81,7 @@ function Sidebar() {
 export default Sidebar;
 
 const Container = styled.div`
-  flex: 0.45;
+  flex: 0.4;
   border-right: 1px solid whitesmoke;
   height: 100vh;
   overflow-y: scroll;
@@ -146,3 +146,12 @@ const SidebarButton = styled(Button)`
     border-bottom: 1px solid whitesmoke;
   }
 `;
+
+/*
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
+   (ISR)     incremental static regeneration (uses revalidate in getStaticProps)
+
+*/

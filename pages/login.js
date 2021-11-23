@@ -1,11 +1,32 @@
 import styled from "styled-components";
 import Head from "next/head";
 import { Button } from "@material-ui/core";
+import { toastInfo } from "../utils/toastInfo";
 import { auth, provider } from "../firebase";
+import PermIdentityIcon from "@material-ui/icons/PermIdentity";
+
+import GoogleLogo from "../image/Google logo.png";
 
 function Login() {
+  // const signIn = () => {
+  //   auth.signInWithPopup(provider).catch(alert);
+  // };
+
   const signIn = () => {
-    auth.signInWithPopup(provider).catch(alert);
+    const google = "google";
+
+    auth
+      .signInWithPopup(provider)
+      .catch((error) => toastInfo(`${error}`, google, "top-center"))
+      .catch(alert);
+  };
+
+  const guestLogin = () => {
+    const anonymous = "anonymous";
+
+    auth
+      .signInAnonymously()
+      .catch((error) => toastInfo(`${error}`, anonymous, "top-center"));
   };
 
   return (
@@ -18,8 +39,13 @@ function Login() {
         <Logo src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png" />
 
         <Button variant="outlined" onClick={signIn}>
-          Sign with Google
+          {/* <img src="../image\Google logo.png" /> */}
+          <span>Sign in with Google</span>
         </Button>
+        {/* <Button variant="outlined" onClick={guestLogin}>
+          <PermIdentityIcon />
+          <span>Login Anonymously</span>
+        </Button> */}
       </LoginContainer>
     </Container>
   );
