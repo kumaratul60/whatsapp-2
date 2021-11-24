@@ -1,3 +1,30 @@
+##Features:
+
+
+web-app link:  https://whatsapp-2-fawn.vercel.app
+
+ 
+
+* This is a two-way chatting web app, users can send and receive messages.
+
+* To sign in to this web-app users have added two e-mail IDs in the google authentication section, for chat interaction between them.
+* Users can authenticate using google login.
+* Users can click on "start a new chat" and type a valid email id or an existing second email id.
+* Click on the newly created email to start a chat. 
+* Login users can write a message to a newly created email chat.
+* If the user doesn't write anything on the message and hits the enter button then it will show an alert box.
+* Users can write a message with text, emoji and send that by clicking on the entering button.
+* Hit on the top left user profile icon to log out.
+* To read and reply to that message/chat again login with the newly created email and click on the previous login email in the left side bar then see/write your chat, with last seen user active on chat.
+* Users can see the last seen active users on top of the header.
+* I'm using server-side rendering in this so can take a few seconds to load all chats.
+ 
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). 
 
 ## Getting Started
